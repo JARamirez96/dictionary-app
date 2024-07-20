@@ -1,6 +1,15 @@
+import { useRef } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+
 function App() {
+  const inputRef = useRef();
+  const navigate = useNavigate();
+
   const handleSearchInput = (event) => {
     event.preventDefault();
+    if (inputRef.current.value.trim() !== "") {
+      navigate(`search/${inputRef.current.value}`);
+    }
   };
 
   return (
@@ -12,7 +21,9 @@ function App() {
             id="search"
             type="text"
             placeholder="Enter word"
+            ref={inputRef}
             className="w-full rounded-s-lg bg-gray-50 border border-gray-300 p-2.5"
+            required
           />
           <button
             onClick={handleSearchInput}
@@ -22,6 +33,7 @@ function App() {
           </button>
         </div>
       </form>
+      <Outlet />
     </>
   );
 }

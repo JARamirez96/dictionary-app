@@ -10,6 +10,7 @@ function useDefinition(word) {
     const fetchData = async () => {
       setInfo(null);
       setIsLoading(true);
+      setError(false);
       try {
         const response = await axios.get(
           `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`

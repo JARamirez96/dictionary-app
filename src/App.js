@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function App() {
   const inputRef = useRef();
@@ -9,12 +9,15 @@ function App() {
     event.preventDefault();
     if (inputRef.current.value.trim() !== "") {
       navigate(`search/${inputRef.current.value}`);
+      inputRef.current.value = "";
     }
   };
 
   return (
     <>
-      <h1 className="text-center my-6 text-4xl">Dictionary App</h1>
+      <h1 className="text-center my-6 text-4xl">
+        <Link to="/search">Dictionary App</Link>
+      </h1>
       <form>
         <div className="w-6/12 m-auto flex">
           <input

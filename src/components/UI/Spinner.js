@@ -1,6 +1,6 @@
 function Spinner({ label }) {
   return (
-    <div className="flex flex-col items-center mt-5">
+    <div className="flex flex-col items-center mt-20">
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
